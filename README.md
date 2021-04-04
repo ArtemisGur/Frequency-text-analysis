@@ -1,5 +1,5 @@
 # Frequency-text-analysis
-How to use
+# How to use
 
 * Compile: 
 ```
