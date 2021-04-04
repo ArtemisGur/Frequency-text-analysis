@@ -7,5 +7,5 @@ make
 ```
 * Usage:
 ```
-./analyzer.out
+./analyzer.out input.txt example.txt
 ```
