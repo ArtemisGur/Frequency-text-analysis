@@ -4,7 +4,7 @@ int get_index(WordList *array, const char *item, int len)
 {
     for (int i = 0; i < len; i++)
     {
-        if (strcmp(array[i].token.word, item) == 0)
+        if (str_compare(array[i].token.word, item))
         {
             return i;
         }
@@ -15,7 +15,7 @@ bool contains(WordList *array, const char *item, int len)
 {
     for (int i = 0; i < len; i++)
     {
-        if (strcmp(array[i].token.word, item) == 0)
+        if (str_compare(array[i].token.word, item))
         {
             return true;
         }
@@ -35,8 +35,8 @@ WordList *make_wordlist(WordList *wordlist, char **array, int len)
         else
         {
             wordlist = realloc(wordlist, sizeof(WordList) * (wordlist->num_of_uniq_word + 1));
-            wordlist[wordlist->num_of_uniq_word].token.word = malloc(strlen(array[i]) + 1);
-            memcpy(wordlist[wordlist->num_of_uniq_word].token.word, array[i], strlen(array[i]) + 1);
+            wordlist[wordlist->num_of_uniq_word].token.word = malloc(str_len(array[i]) + 1);
+            str_copy(wordlist[wordlist->num_of_uniq_word].token.word, array[i], str_len(array[i]) + 1);
             wordlist[wordlist->num_of_uniq_word].token.num_of_words = 1;
             wordlist->num_of_uniq_word++;
         }
@@ -54,7 +54,7 @@ void sorting_wordlist(WordList *wordlist)
             if (wordlist[i].token.num_of_words > wordlist[j].token.num_of_words)
             {
                 char *tmp_word = malloc(strlen(wordlist[j].token.word) + 1);
-                memcpy(tmp_word, wordlist[i].token.word, strlen(wordlist[i].token.word) + 1);
+                str_copy(tmp_word, wordlist[i].token.word, str_len(wordlist[i].token.word) + 1);
                 wordlist[i].token.word = wordlist[j].token.word;
                 wordlist[j].token.word = tmp_word;
                 tmp_counter = wordlist[i].token.num_of_words;
@@ -88,7 +88,6 @@ char make_lower(char **array, int file_len)
         while (array[i][j] != '\0')
         {
             array[i][j] = tolower(array[i][j]);
-            // printf("%c", array[i][j]);
             j++;
         }
     }

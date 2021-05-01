@@ -2,14 +2,14 @@
 
 char *concat_string(char *first, char *last)
 {
-    char *result = malloc(sizeof(char) * (strlen(first) + strlen(last) + 1));
+    char *result = malloc(sizeof(char) * (str_len(first) + str_len(last) + 1));
     if (!result)
     {
         exit(-1);
     }
-    memcpy(result, first, strlen(first));
-    memcpy(result + strlen(first), last, strlen(last) + 1);
-    if (strlen(first) > 0)
+    str_copy(result, first, str_len(first));
+    str_copy(result + str_len(first), last, str_len(last) + 1);
+    if (str_len(first) > 0)
     {
         free(first);
     }
@@ -41,7 +41,7 @@ char *read_file(const char *filename)
 char **split_string(int *length, char *string, char *separator)
 {
     char **result = NULL;
-    char *p = strtok(string, separator);
+    char *p = str_tok(string, separator);
     *length = 0;
     while (p)
     {
@@ -51,7 +51,7 @@ char **split_string(int *length, char *string, char *separator)
             exit(-1);
         }
         result[(*length) - 1] = p;
-        p = strtok(NULL, separator);
+        p = str_tok(NULL, separator);
     }
     return result;
 }

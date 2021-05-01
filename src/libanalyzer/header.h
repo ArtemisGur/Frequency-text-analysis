@@ -26,3 +26,8 @@ void sorting_wordlist(WordList *wordlist);
 void delete_single_words(WordList *wordlist);
 char make_lower(char **array, int file_len);
 void fill_file(WordList *wordlist, FILE *output_data);
+int str_len(char *array);
+bool str_compare(char *array_1, const char *array_2);
+void str_copy(char *distantion, char *source, int len);
+char *str_chr(const char *s, const char c);
+char *str_tok(char *str, const char *separator);
