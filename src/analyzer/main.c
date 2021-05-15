@@ -6,7 +6,7 @@ int main(int argc, char **arg)
     FILE *output_data;
     WordList *wordlist = malloc(sizeof(Word));
 
-    char **array = split_string(&file_len, read_file(arg[1]), "\t\n\r.,.!?()- :;");
+    char **array = split_string(&file_len, read_file(arg[1]), "\t\n\r.,.!?()-'’‘– :;");
     output_data = fopen(arg[2], "w+");
     make_lower(array, file_len);
 

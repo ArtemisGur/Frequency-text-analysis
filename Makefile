@@ -10,7 +10,7 @@ BIN_DIR = bin
 OBJ_DIR = obj
 SRC_DIR = src
 
-APP_PATH = $(APP_NAME).out
+APP_PATH = $(BIN_DIR)/$(APP_NAME).out
 LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME).a
 
 SRC_EXT = c
