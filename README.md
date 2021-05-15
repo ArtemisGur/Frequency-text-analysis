@@ -8,5 +8,5 @@ make
 ```
 * Usage:
 ```
-./analyzer.out input.txt example.txt
+./analyzer.out ../input.txt ../example.txt
 ```
